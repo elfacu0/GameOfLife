@@ -7,6 +7,8 @@ var gen = 1;
 var cellsN = [];
 var start = 0;
 let button;
+let start;
+let stop;
 var canvasx = 500;
 var canvasy = 500;
 var rs = canvasx/col;
@@ -23,9 +25,15 @@ function setup() {
         cellsN[i][j] = 0;
      }
   }
-  button = createButton('submit');
-  button.position(600,600, 65);
+  button = createButton('Next');
+  button.position(0,0, 65);
   button.mousePressed(game);
+  start = createButton('Start');
+  start.position(200,0, 65);
+  start.mousePressed(start_game);
+  stop = createButton('Stop');
+  stop.position(400,0, 65);
+  stop.mousePressed(stop_game);
 }
 
 function draw() {
@@ -95,6 +103,17 @@ function mousePressed() {
 function mouseReleased(){
   b = false;
   f = true;
+}
+
+var stop_g = false;
+function start_game(){
+  stop_g=false;
+  while(stop_g==false){
+      game(n); 
+  }
+}
+function stop_game(){
+  stop_g = true; 
 }
 
 function game(gen){
