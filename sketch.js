@@ -8,8 +8,8 @@ var cellsN = [];
 let button;
 let start;
 let stop;
-var canvasx = 700;
-var canvasy = 700;
+var canvasx = 650;
+var canvasy = 650;
 var rs = canvasx/col;
 var stop_g = true;
 
@@ -38,7 +38,7 @@ function setup() {
 
 function draw() {
   if(stop_g == false){
-   if (frameCount % 60 == 0) { 
+   if (frameCount % 20 == 0) { 
       game(); 
     } 
   }else{
