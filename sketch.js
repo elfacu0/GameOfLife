@@ -1,18 +1,17 @@
-var col = 20;
-var row = 20;
+var col = 30;
+var row = 30;
 var u = [];
 var b = false;
 var f = true;
 var gen = 1;
 var cellsN = [];
-var start = 0;
 let button;
 let start;
 let stop;
-var canvasx = 500;
-var canvasy = 500;
+var canvasx = 800;
+var canvasy = 800;
 var rs = canvasx/col;
-var start = false;
+var stop_g = true;
 
 function setup() {
   createCanvas(canvasx, canvasy);
@@ -34,16 +33,20 @@ function setup() {
   stop = createButton('Stop');
   stop.position(400,0, 65);
   stop.mousePressed(stop_game);
+  timer = 1000;
 }
 
 function draw() {
-  for(var i = 0; i<col ; i++){
-     for(var j = 0; j<row ; j++){
-        u[i][j].clicked();
-     }
-  }
-  if(start){
-   game(); 
+  if(stop_g == false){
+   if (frameCount % 60 == 0) { 
+      game(); 
+    } 
+  }else{
+    for(var i = 0; i<col ; i++){
+       for(var j = 0; j<row ; j++){
+          u[i][j].clicked();
+       }
+    }
   }
 }
 
@@ -74,8 +77,6 @@ class grid{
   }
   
   clicked(){
-    //var offx = this.x+(pow(pow(rs,2)+pow(rs,2),0.5)/col);
-    //var offy = this.y+(pow(pow(rs,2)+pow(rs,2),0.5)/col);
       var offx = this.x+(rs/col*6);
       var offy = this.y+(rs/col*6);
       var d = dist(mouseX,mouseY,offx,offy);
@@ -105,12 +106,8 @@ function mouseReleased(){
   f = true;
 }
 
-var stop_g = false;
 function start_game(){
   stop_g=false;
-  while(stop_g==false){
-      game(n); 
-  }
 }
 function stop_game(){
   stop_g = true; 
@@ -130,12 +127,6 @@ function game(gen){
            if(u[i][j].v == 1){
               c -= 1;
            }
-       if(c>1){
-       print(c);
-       print(i);
-       print(j);
-       print("//////");
-       }
           if(u[i][j].v == 0 && c==3){
              cellsN[i][j] = 1;
             }
