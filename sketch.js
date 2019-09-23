@@ -13,7 +13,6 @@ var rs = canvasx/col;
 var start = false;
 
 function setup() {
-  frameRate(5)
   createCanvas(canvasx, canvasy);
   background(0);
   for(var i = 0; i<col ; i++){
