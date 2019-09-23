@@ -8,8 +8,8 @@ var cellsN = [];
 let button;
 let start;
 let stop;
-var canvasx = 800;
-var canvasy = 800;
+var canvasx = 700;
+var canvasy = 700;
 var rs = canvasx/col;
 var stop_g = true;
 
