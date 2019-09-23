@@ -25,7 +25,7 @@ function setup() {
      }
   }
   button = createButton('submit');
-  button.position(0,0, 65);
+  button.position(600,600, 65);
   button.mousePressed(game);
 }
 
